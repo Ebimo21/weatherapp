@@ -18,13 +18,11 @@ export default function Home({data}) {
       const result = await fetch(`https://api.weatherapi.com/v1/current.json?key=7099049cfc184f6d8f5120118222506&q=${location}&aqi=no`);
       const data = await result.json();
       if(!result.ok){
-        // console.log(result)
         setDatas("");
         
       }else{
 
       setDatas(data);
-      console.log(datas)
     }
 
     }catch(err){
@@ -53,10 +51,10 @@ export default function Home({data}) {
         label={`Search Location:`}
         submitAction={checkLocation}
         setLocation={setLocation}
-        onChangeAction={(e)=>{setLocation(e.target.value); console.log(location)}}>
+        onChangeAction={(e)=>{setLocation(e.target.value);}}>
       </GetData>
       
-      <h1 className={`xl:text-6xl font-bold`}>{datas!==""? datas.current.feelslike_c: ""} {datas!==""? <>&deg;C</>: <span className={`xl:text-red-700 text-xl`}>Couldn't find location</span>}</h1>
+      <h1 className={`xl:text-6xl font-bold`}>{datas!==""? datas.current.feelslike_c: ""} {datas!==""? <> &deg;C</>: <span className={`xl:text-red-700 text-xl`}>Couldn&apos;t find location</span>}</h1>
       <div className=" xl:card xl:items-center xl:card-side xl:bg-base-100 xl:shadow-xl ">
         <figure className='flex flex-col p-4'>
           <Image src={datas!==""?"https:" +datas.current.condition.icon:"https://cdn.weatherapi.com/weather/64x64/day/116.png"} alt="Movie" width={datas!==""? `96px`: `96px`}  height={datas!==""?`96px`: `96px`} />
@@ -89,7 +87,6 @@ export async function getServerSideProps(){
 
     const result = await fetch(`https://api.weatherapi.com/v1/current.json?key=7099049cfc184f6d8f5120118222506&q=Nigeria&aqi=no`);
     const data = await result.json();
-    console.log(data)
   return {
     props:{
       data
