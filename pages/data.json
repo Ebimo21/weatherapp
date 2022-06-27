@@ -1,0 +1,48 @@
+{
+    "location":
+    
+    {
+        "name":"Yenagoa",
+        "region":"Bayelsa",
+        "country":"Nigeria",
+        "lat":4.92,"lon":6.26,
+        "tz_id":"Africa/Lagos",
+        "localtime_epoch":1656180326,
+        "localtime":"2022-06-25 19:05"
+    },
+        
+    "current":
+    {
+        "last_updated_epoch":1656176400,
+        "last_updated":"2022-06-25 18:00",
+        "temp_c":26.1,
+        "temp_f":79.0,
+        "is_day":0,
+        "condition":
+        {
+            "text":"Light rain shower",
+            "icon":"//cdn.weatherapi.com/weather/64x64/night/353.png",
+            "code":1240
+        },
+        
+        "wind_mph":5.8,
+        "wind_kph":9.4,
+        "wind_degree":211,
+        "wind_dir":"SSW",
+        "pressure_mb":1011.0,
+        "pressure_in":29.84,
+        "precip_mm":1.0,
+        "precip_in":0.04,
+        "humidity":87,
+        "cloud":65,
+        "feelslike_c":29.4,
+        "feelslike_f":84.9,
+        "vis_km":10.0,
+        "vis_miles":6.0,
+        "uv":6.0,
+        "gust_mph":10.7,
+        "gust_kph":17.3
+        
+    }
+        
+}
