@@ -2,28 +2,31 @@ import Head from 'next/head'
 import Image from 'next/image'
 import {useState} from 'react';
 import Carousel from '../components/DaisyUI/Carousel/Carousel';
-import InputText from '../components/DaisyUI/InputText/InputText';
 import GetData from '../components/GetData';
 import Title from '../components/Title';
 
 export default function Home({data}) {
+  //Environment variables
+  const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
   
+  //Define Variables
   const [location, setLocation] = useState(" ");
   const [datas, setDatas] = useState(data)
 
+  //Define Functions
   const checkLocation = async(e) =>{
     e.preventDefault();
 
     try{
-      const result = await fetch(`https://api.weatherapi.com/v1/current.json?key=7099049cfc184f6d8f5120118222506&q=${location}&aqi=no`);
+      const result = await fetch(`https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${location}&aqi=no`);
       const data = await result.json();
+
       if(!result.ok){
         setDatas("");
-        
-      }else{
-
+      }
+      else{
       setDatas(data);
-    }
+      }
 
     }catch(err){
       setDatas("");
@@ -73,7 +76,6 @@ export default function Home({data}) {
 
       <Carousel 
         clName={`carousel rounded-box w-96`}>
-
       </Carousel>
 
     </div>
@@ -84,15 +86,25 @@ export default function Home({data}) {
 
 
 export async function getServerSideProps(){
+  //Environment variables
+  const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 
-    const result = await fetch(`https://api.weatherapi.com/v1/current.json?key=7099049cfc184f6d8f5120118222506&q=Nigeria&aqi=no`);
-    const data = await result.json();
+  //Declare variables
+  let data;
+  
+  try{
+    const result = await fetch(`https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=Nigeria&aqi=no`);
+    data = await result.json();
+    if(!result.ok){
+      data = "";
+    }
+
+  }catch(err){
+   data = "";
+  }
   return {
     props:{
       data
     }
   }
-
 }
-
-
