@@ -10,8 +10,9 @@ export default function Home({data}) {
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
   
   //Define Variables
-  const [location, setLocation] = useState(" ");
+  const [location, setLocation] = useState("");
   const [datas, setDatas] = useState(data)
+  const today = new Date()
 
   //Define Functions
   const checkLocation = async(e) =>{
@@ -69,7 +70,7 @@ export default function Home({data}) {
                                                                datas.location.country : ""}</h2>
           
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">More</button>
+            <button className="btn btn-primary">{today.getFullYear()}</button>
           </div>
         </div>
       </div>
